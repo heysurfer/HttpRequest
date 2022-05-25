@@ -11,9 +11,7 @@ Example Get Request:
         printf("Response Status Code : %i\n" , value.http_code);
     }
     else
-    {
         printf("Curl Failed: %s\n", value.FailInfo.c_str());
-    }
 ```
 
 Example Post Request:
@@ -28,9 +26,7 @@ Example Post Request:
         printf("Response Status Code : %i\n" , value.http_code);
     }
     else
-    {
         printf("Curl Failed: %s\n", value.FailInfo.c_str());
-    }
 
 ```
 
