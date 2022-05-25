@@ -14,12 +14,6 @@
 #else
 #include "curl/curl/curl.h"
 #endif
-size_t header_callback(char* buffer, size_t size, size_t nitems, void* userdata)
-{
-    std::string* headers = (std::string*)userdata;
-    headers->append(buffer, nitems * size);
-    return nitems * size;
-}
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp)
 {
     ((std::string*)userp)->append((char*)contents, size * nmemb);
