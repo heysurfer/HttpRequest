@@ -64,6 +64,7 @@ bool DownloadFile(const std::string Url, const std::string Location)
         curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
         curl_easy_cleanup(curl);
         curl_global_cleanup();
+        fclose(fp);
         if (res == CURLE_OK)
             return true;
         else
