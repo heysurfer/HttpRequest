@@ -11,7 +11,5 @@ int main()
         printf("Response Status Code : %i\n" , value.http_code);
     }
     else
-    {
         printf("Curl Failed: %s\n", value.FailInfo.c_str());
-    }
 }
