@@ -9,7 +9,9 @@
 #define HTTPREQUEST_HPP
 #if defined _DEBUG
 #define CURL_STATICLIB
+#ifdef _MSC_VER
 #pragma comment(lib, "Normaliz.lib")
+#endif
 #include "curl/curl/curl.h"
 #else
 #include "curl/curl/curl.h"
