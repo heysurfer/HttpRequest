@@ -46,6 +46,7 @@ bool DownloadFile(const std::string Url, const std::string Location)
     {
         FILE* fp;
         fp = fopen(Location.c_str(), "wb");
+        curl_easy_setopt(curl, CURLOPT_URL, Url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &fp);
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, true);
