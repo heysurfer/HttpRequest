@@ -59,10 +59,6 @@ bool DownloadFile(const std::string Url, const std::string Location)
         curl_easy_setopt(curl, CURLOPT_PROXY, false);
         curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
         res = curl_easy_perform(curl);
-        if (res != CURLE_OK) {
-            fprintf(stderr, "Curl failed: %s\n",
-                curl_easy_strerror(res));
-        }
         curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
         curl_easy_cleanup(curl);
         curl_global_cleanup();
