@@ -33,3 +33,12 @@ Example Post Request:
     }
 
 ```
+
+Example Download:
+```c++
+    if (DownloadFile("URL", "LOCATION"))
+        printf("Success Download\n");
+    else
+        printf("Failed To Download\n");
+
+```
