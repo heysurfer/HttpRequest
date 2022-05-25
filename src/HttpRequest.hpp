@@ -19,6 +19,10 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp)
     ((std::string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
 }
+size_t write_data(void* ptr, size_t size, size_t nmemb, FILE* stream) {
+    size_t written = fwrite(ptr, size, nmemb, stream);
+    return written;
+}
 enum HttpRequestMethod { Get = 0, Post, Delete, PUT, Head } ;
 struct ResponseInfo {
     std::string Body;
@@ -31,10 +35,6 @@ struct RequestInfo {
     bool Json = false;
     std::string CustomHeader, CustomUserAgent, PostData, URL = "";
 };
-size_t write_data(void* ptr, size_t size, size_t nmemb, FILE* stream) {
-    size_t written = fwrite(ptr, size, nmemb, stream);
-    return written;
-}
 bool DownloadFile(const std::string Url, const std::string Location)
 {
     CURL* curl;
