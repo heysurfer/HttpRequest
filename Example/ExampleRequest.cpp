@@ -2,10 +2,10 @@
 
 int main()
 {
-    RequestInfo Req;
+    HTTP::RequestInfo Req;
     Req.URL = "https://api.ipify.org?format=json";
-    Req.Method = Get;
-    auto value = SendRequest(Req);
+    Req.Method = HTTP::Get;
+    auto value = HTTP::SendRequest(Req);
     if (value.Success) {
         printf("Response Body : %s\n", value.Body.c_str());
         printf("Response Status Code : %i\n" , value.http_code);
