@@ -2,7 +2,7 @@
 
 int main()
 {
-  if (DownloadFile("URL", "LOCATION"))
+  if (HTTP::DownloadFile("URL", "LOCATION"))
     printf("Success Download\n");
   else
     printf("Failed To Download\n");
