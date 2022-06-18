@@ -24,10 +24,6 @@ private:
         ((std::string*)userp)->append((char*)contents, size * nmemb);
         return size * nmemb;
     }
-    static size_t write_data(void* ptr, size_t size, size_t nmemb, FILE* stream) {
-        size_t written = fwrite(ptr, size, nmemb, stream);
-        return written;
-    }
 public:
     enum HttpRequestMethod { Get = 0, Post, Delete, PUT, Head };
     struct ResponseInfo {
@@ -53,8 +49,8 @@ public:
             FILE* fp;
             fp = fopen(Location.c_str(), "wb");
             curl_easy_setopt(curl, CURLOPT_URL, Url.c_str());
-            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &write_data);
-            curl_easy_setopt(curl, CURLOPT_WRITEDATA, &fp);
+            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
+            curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
             curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, true);
             curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, false);
             curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, false);
