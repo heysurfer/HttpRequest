@@ -58,6 +58,7 @@ public:
             curl_easy_setopt(curl, CURLOPT_TIMEOUT_MS, 10000);
             curl_easy_setopt(curl, CURLOPT_PROXY, false);
             curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
+            curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36");
             res = curl_easy_perform(curl);
             curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
             curl_easy_cleanup(curl);
