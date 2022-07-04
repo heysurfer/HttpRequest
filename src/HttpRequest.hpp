@@ -85,7 +85,7 @@ public:
             if (ReqINFO.Method == HttpRequestMethod::Get)
                 curl_easy_setopt(curl, CURLOPT_HTTPGET, 1L);
             if (ReqINFO.Method == HttpRequestMethod::Post)
-                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, ReqINFO.PostData);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, ReqINFO.PostData.c_str());
             if (ReqINFO.Method == HttpRequestMethod::Delete)
                 curl_easy_setopt(curl, CURLOPT_HTTPGET, "DELETE");
             if (ReqINFO.Method == HttpRequestMethod::PUT)
