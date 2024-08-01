@@ -137,9 +137,10 @@ public:
 			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
 			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
 		}
-
+		
+		std::string targetData;
 		if (!m_jsonData.empty() || !param.empty()) {
-			std::string targetData;
+			
 			if (!m_jsonData.empty()) {
 				targetData = m_jsonData;
 			}
